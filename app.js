@@ -15,6 +15,8 @@ app.use("/api", indexRouter); // /api를 해주면 각 주소 앞에 /api가 붙
 
 const mongoURI = MONGODB_URI_PROD;
 
+const PORT = process.env.PORT || 5000;
+
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
   .then(() => {
@@ -26,6 +28,6 @@ mongoose
   });
 // useNewUrlParser 은  mongodb 형태가 약간 다르다 옛날과 요즘 형식이 다른 부분을 요즘 형식도 잘 나올 수 있게 해달라는 코드
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("server on 5000");
+app.listen(PORT, () => {
+  console.log(`server on 5000 ${PORT}`);
 });
